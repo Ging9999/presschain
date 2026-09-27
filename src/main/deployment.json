@@ -1,0 +1,7 @@
+{
+  "_comment": "PLACEHOLDER — overwritten by contracts/scripts/deploy.ts on real deployment. The zero address means no live contract; on-chain calls will fail until you deploy.",
+  "network": "baseSepolia",
+  "chainId": 84532,
+  "address": "0x0000000000000000000000000000000000000000",
+  "deployedAt": null
+}

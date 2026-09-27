@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>PressChain</title>
+    <!--
+      Content-Security-Policy is set from the main process (per environment) via
+      session.onHeadersReceived, so it can be strict in production and dev-friendly
+      while running the Vite dev server.
+    -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

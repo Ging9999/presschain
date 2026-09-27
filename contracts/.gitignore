@@ -1,0 +1,15 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules
+
+# Hardhat build output
+artifacts
+cache
+typechain-types
+
+# TypeScript build output
+dist

@@ -1,0 +1,73 @@
+appId: org.presschain.app
+productName: PressChain
+copyright: Copyright © 2025 PressChain Contributors
+
+directories:
+  output: release
+  buildResources: resources
+
+# NOTE: electron-vite emits the built app to `out/` (not `dist/`), so that is
+# what must be packaged. electron-builder additionally includes production
+# dependencies from node_modules automatically.
+files:
+  - out/**/*
+  - package.json
+  - '!**/*.map'
+
+asar: true
+
+# Ship the bundled Tor Expert Bundle (staged by `npm run fetch-tor`) as
+# extraResources so the platform binary lands on disk at
+# <resourcesPath>/tor/<platform>-<arch>/ and is executable (outside the asar).
+# Only the platform dirs present at build time are packaged.
+extraResources:
+  - from: resources/tor
+    to: tor
+    filter:
+      - '**/*'
+
+# macOS
+mac:
+  category: public.app-category.utilities
+  icon: resources/icons/icon.icns
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+  notarize: false # set true with Apple credentials for production
+
+# Windows
+win:
+  icon: resources/icons/icon.ico
+  target:
+    - target: nsis
+      arch: [x64, ia32]
+  # NOTE: `publisherName` was removed from the win schema in electron-builder 26
+  # (it now lives under signtoolOptions for code-signing). Omitted for the
+  # unsigned MVP build.
+
+nsis:
+  oneClick: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  installerIcon: resources/icons/icon.ico
+  uninstallerIcon: resources/icons/icon.ico
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+# Linux
+linux:
+  icon: resources/icons/icon.png
+  category: Network
+  target:
+    - deb
+    - AppImage
+    - rpm
+
+# Auto-updater (GitHub releases — set repo below for production)
+publish:
+  provider: github
+  owner: YOUR_GITHUB_USERNAME
+  repo: presschain
+  private: false

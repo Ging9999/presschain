@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- PressChain icon: padlock + chain link, accent green on near-black -->
+  <rect width="512" height="512" rx="112" fill="#0a0a0f" />
+  <rect x="14" y="14" width="484" height="484" rx="100" fill="none" stroke="#1f2937" stroke-width="4" />
+
+  <!-- Chain link threaded through the padlock shackle -->
+  <ellipse
+    cx="256"
+    cy="150"
+    rx="30"
+    ry="48"
+    fill="none"
+    stroke="#16a34a"
+    stroke-width="20"
+  />
+
+  <!-- Padlock shackle -->
+  <path
+    d="M180 236 v-44 a76 76 0 0 1 152 0 v44"
+    fill="none"
+    stroke="#4ade80"
+    stroke-width="24"
+    stroke-linecap="round"
+  />
+
+  <!-- Padlock body -->
+  <rect x="150" y="234" width="212" height="176" rx="30" fill="#4ade80" />
+
+  <!-- Keyhole -->
+  <circle cx="256" cy="300" r="26" fill="#0a0a0f" />
+  <rect x="246" y="312" width="20" height="62" rx="10" fill="#0a0a0f" />
+</svg>

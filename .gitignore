@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-electron
+out
+release
+.DS_Store
+.eslintcache
+*.log*
+resources/tor
+
+# Secrets — never commit. Use .env.example as the template.
+.env
+.env.*
+!.env.example
